@@ -3,9 +3,9 @@ const { Schema } = mongoose;
 
 const StockSchema = new Schema({
     symbol: { type: String, required: true },
-    likes: { type: String, default: [] },
+    likes: { type: [String], default: [] },
 });
 
-const Stock = mongoose.model({"Stock": StockSchema});
+const Stock = mongoose.model("Stock", StockSchema); // Pass the model name as a string
 
-exports.Stock = Stock;
+module.exports = { Stock };
